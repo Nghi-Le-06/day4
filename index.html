@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Ngày 4 – Sen tin và chờ</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  height:100vh;
+  background: radial-gradient(circle at top, #fff1cc, #ffd6a5, #ffb703);
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#6b3f1d;
+}
+
+.container{
+  position:relative;
+  z-index:5;
+  max-width:820px;
+  padding:56px;
+  background:rgba(255,255,255,0.78);
+  border-radius:32px;
+  box-shadow:0 40px 80px rgba(0,0,0,0.25);
+  line-height:2;
+  animation:fadeIn 2.8s ease;
+}
+
+.day-badge{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#e07a00;
+  animation:pulse 3.5s infinite;
+}
+
+h1{
+  text-align:center;
+  margin:12px 0 34px;
+  font-size:30px;
+  font-weight:600;
+}
+
+p{
+  margin-bottom:10px;
+  font-size:16.8px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1;}
+  50%{opacity:0.55;}
+}
+
+/* ===== HEART FLOAT & BREATHE ===== */
+.heart{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:#ff8c42;
+  transform:rotate(45deg);
+  opacity:0.7;
+  animation:float 14s ease-in-out infinite, breathe 4s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(255,140,66,0.6));
+}
+
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:inherit;
+  border-radius:50%;
+}
+
+.heart::before{ top:-10px; left:0; }
+.heart::after{ left:-10px; top:0; }
+
+@keyframes float{
+  0%{ transform:translateY(0) rotate(45deg); }
+  50%{ transform:translateY(-40px) rotate(45deg); }
+  100%{ transform:translateY(0) rotate(45deg); }
+}
+
+@keyframes breathe{
+  0%,100%{ transform:scale(1) rotate(45deg); }
+  50%{ transform:scale(1.15) rotate(45deg); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="day-badge">NGÀY 4</div>
+  <h1>Sen tin và chờ</h1>
+
+  <p>Hôm nay là ngày thứ tư.</p>
+  <p>Nỗi nhớ trong sen vẫn còn đó,</p>
+  <p>nhưng không làm tim sen run nữa.</p>
+
+  <p>Sen bắt đầu tin.</p>
+  <p>Tin rằng yêu không cần phải vội.</p>
+  <p>Tin rằng nếu là của nhau,</p>
+  <p>thì im lặng cũng không thể làm lạc đường.</p>
+
+  <p>Sen chờ moa,</p>
+  <p>không phải vì sợ mất,</p>
+  <p>mà vì sen biết nơi mình đứng.</p>
+
+  <p>Có những lúc rất yên,</p>
+  <p>sen mỉm cười và nghĩ đến ngày gặp lại.</p>
+
+  <p>Không cần tưởng tượng nhiều.</p>
+  <p>Chỉ cần biết,</p>
+  <p>tình yêu này vẫn đang ấm.</p>
+
+  <p>Và sen vẫn ở đây.</p>
+  <p>Chờ, nhưng không yếu.</p>
+</div>
+
+<script>
+const colors = ['#ff8c42','#ffb703','#f77f00','#ff9f1c'];
+
+for(let i=0;i<22;i++){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.top=30+Math.random()*40+'vh';
+  heart.style.background=colors[Math.floor(Math.random()*colors.length)];
+  heart.style.animationDuration=(10+Math.random()*10)+'s';
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
